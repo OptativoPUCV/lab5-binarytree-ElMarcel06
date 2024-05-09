@@ -47,41 +47,39 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 
 
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
-    if (tree == NULL || tree->root == NULL){
+    if (tree == NULL || tree->root == NULL) {
         tree->root = createTreeNode(key, value);
         return;
     }
-    TreeNode * aux = tree->root;
-    while (aux != NULL){
-        if (is_equal(tree, key, aux->pair->key)){
-            return;
-        }else{
-            if (tree->lower_than(key, aux->pair->key) == 1){
-                if (aux->left == NULL){
-                    aux->left = createTreeNode(key, value);
-                    aux->left->parent = aux;
-                    return;
-                }else{
-                    aux = aux->left;
-                    
-                }
-                
-            } } else {
-            if (aux->right == NULL) {
-                aux->right = createTreeNode(key, value);
-                aux->right->parent = aux;
-                return;
-            } else {
-                aux = aux->right;
-            }
-            }
-            
-        }
-        
-    }
-    
-}
 
+    TreeNode * aux = tree->root;
+    while (aux != NULL) {
+        if (is_equal(tree, key, aux->pair->key)) {
+            // La clave ya existe en el árbol, no se permite duplicados.
+            return;
+        } else {
+            if (tree->lower_than(key, aux->pair->key) == 1) {
+                if (aux->left == NULL) {
+                    TreeNode *new_node = createTreeNode(key, value);
+                    aux->left = new_node;
+                    new_node->parent = aux;
+                    return;
+                } else {
+                    aux = aux->left;
+                }
+            } else {
+                if (aux->right == NULL) {
+                    TreeNode *new_node = createTreeNode(key, value);
+                    aux->right = new_node;
+                    new_node->parent = aux;
+                    return;
+                } else {
+                    aux = aux->right;
+                }
+            }
+        }
+    }
+}
 TreeNode * minimum(TreeNode * x){
 
     return NULL;
