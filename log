@@ -91,3 +91,14 @@ Thu 09 May 2024 08:44:49 PM UTC:
  tests:  12|6
 total_score: 15/70
 7fb51bc
+Thu 09 May 2024 08:48:55 PM UTC: 
+ treemap.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:56:16: error: unused variable ‘parent’ [-Werror=unused-variable]
+   56 |     TreeNode * parent = NULL;
+      |                ^~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+71261c2

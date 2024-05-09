@@ -53,15 +53,18 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
     }
 
     TreeNode * aux = tree->root;
+    TreeNode * parent = NULL;
+
     while (aux != NULL) {
         if (is_equal(tree, key, aux->pair->key)) {
-            // La clave ya existe en el árbol, no se permite duplicados.
+            
             return;
         } else {
             if (tree->lower_than(key, aux->pair->key) == 1) {
                 if (aux->left == NULL) {
                     TreeNode *new_node = createTreeNode(key, value);
                     aux->left = new_node;
+                    
                     new_node->parent = aux;
                     return;
                 } else {
@@ -77,8 +80,11 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
                     aux = aux->right;
                 }
             }
+            
         }
+        
     }
+    
 }
 TreeNode * minimum(TreeNode * x){
 
