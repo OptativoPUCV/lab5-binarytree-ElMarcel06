@@ -129,24 +129,19 @@ TreeNode * minimum(TreeNode * x){
 void removeNode(TreeMap * tree, TreeNode* node) {
     if (node == NULL) return;
 
-    // Caso 1: El nodo no tiene hijos (es una hoja)
     if (node->left == NULL && node->right == NULL) {
         if (node->parent == NULL) {
-            // El nodo es la raíz del árbol
             tree->root = NULL;
         } else {
-            // El nodo tiene un padre
             if (node->parent->left == node) {
                 node->parent->left = NULL;
             } else {
                 node->parent->right = NULL;
             }
         }
-        free(node); // Liberar memoria del nodo eliminado
+        free(node); 
         return;
     }
-
-    // Caso 2: El nodo tiene un hijo derecho pero no tiene hijo izquierdo
     if (node->left == NULL && node->right != NULL) {
         if (node->parent == NULL) {
             tree->root = node->right;
@@ -159,11 +154,9 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             }
             node->right->parent = node->parent;
         }
-        free(node); // Liberar memoria del nodo eliminado
+        free(node); 
         return;
     }
-
-    // Caso 3: El nodo tiene un hijo izquierdo pero no tiene hijo derecho
     if (node->left != NULL && node->right == NULL) {
         if (node->parent == NULL) {
             tree->root = node->left;
@@ -176,7 +169,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             }
             node->left->parent = node->parent;
         }
-        free(node); // Liberar memoria del nodo eliminado
+        free(node); 
         return;
     }
 }
