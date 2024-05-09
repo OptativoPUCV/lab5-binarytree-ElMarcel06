@@ -148,3 +148,35 @@ Thu 09 May 2024 08:53:56 PM UTC:
  tests:  14|5
 total_score: 15/70
 534b5dd
+Thu 09 May 2024 08:54:53 PM UTC: 
+ treemap.c | 26 +-------------------------
+ 1 file changed, 1 insertion(+), 25 deletions(-)
+test.c: In function ‘minimum_test’:
+test.c:225:19: error: implicit declaration of function ‘minimum’ [-Werror=implicit-function-declaration]
+  225 |     TreeNode* n = minimum(tree->root);
+      |                   ^~~~~~~
+test.c:225:19: error: initialization of ‘TreeNode *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+test.c:239:7: error: assignment to ‘TreeNode *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  239 |     n = minimum(tree->root->left);
+      |       ^
+test.c:250:7: error: assignment to ‘TreeNode *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  250 |     n = minimum(tree->root);
+      |       ^
+test.c: In function ‘insertTreeMap’:
+test.c:503:5: error: ‘main’ is normally a non-static function [-Werror=main]
+  503 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:606:1: error: expected declaration or statement at end of input
+  606 | }
+      | ^
+test.c:606:1: error: expected declaration or statement at end of input
+test.c:606:1: error: expected declaration or statement at end of input
+test.c:606:1: error: expected declaration or statement at end of input
+test.c:606:1: error: expected declaration or statement at end of input
+At top level:
+test.c:503:5: error: ‘main’ defined but not used [-Werror=unused-function]
+  503 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+55277b5
