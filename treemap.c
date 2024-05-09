@@ -51,37 +51,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
         tree->root = createTreeNode(key, value);
         return;
     }
-
-    TreeNode * aux = tree->root;
-    while (aux != NULL) {
-        if (is_equal(tree, key, aux->pair->key)) {
-            // La clave ya existe en el árbol, no se permite duplicados.
-            return;
-        } else {
-            if (tree->lower_than(key, aux->pair->key) == 1) {
-                if (aux->left == NULL) {
-                    TreeNode *new_node = createTreeNode(key, value);
-                    aux->left = new_node;
-                    new_node->parent = aux;
-                    return;
-                } else {
-                    aux = aux->left;
-                }
-            } else {
-                if (aux->right == NULL) {
-                    TreeNode *new_node = createTreeNode(key, value);
-                    aux->right = new_node;
-                    new_node->parent = aux;
-                    return;
-                } else {
-                    aux = aux->right;
-                }
-                
-            }
-            
-        }
-        
-    }
+    
     
 }
 
@@ -169,6 +139,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
     else{
         tree->current = node;
     }
+    
     return node->pair;
 }
 
