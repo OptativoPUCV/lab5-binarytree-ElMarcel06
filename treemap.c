@@ -140,10 +140,11 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             node->parent->left = node->right;
             node->right->parent = node->parent;
             
+            
         }
         else{
             node->parent->right = node->right;
-            
+            node->right->parent = node->parent;
         }
         node->right->parent = node->parent;
         
