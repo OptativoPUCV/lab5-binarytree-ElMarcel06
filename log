@@ -102,3 +102,13 @@ treemap.c:56:16: error: unused variable ‘parent’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 71261c2
+Thu 09 May 2024 08:49:30 PM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:56:8: error: ‘TreeNode’ has no member named ‘current’
+   56 |     aux->current = aux;
+      |        ^~
+Compilation failed
+f681c0b
